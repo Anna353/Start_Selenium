@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,33 +25,59 @@ public class Start {
         wd.quit();
     }
  @Test
-  public void firstTest(){
+  public void firstTestLoginSuccess(){
 
         wd = new ChromeDriver();
         wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
 
-//        //open form -> click login button
-//       WebElement loginTab;
-//       loginTab.click();
-//
-//       //fill valid email
-//       WebElement emailTextBox;
-//       emailTextBox.click();
-//       emailTextBox.clear();
-//       emailTextBox.sendKeys("test@gmail.com);
-//
-//      // fill valid password
-//       WebElement passwordTextBox;
-//       passwordTextBox.click();
-//       passwordTextBox.clear();
-//       passwordTextBox.sendKeys("Tt12345$");
-//
-//       //click login button
-//       WebElement loginButton;
-//       loginButton.click();
-//
-//       //Assert
+        //open form -> click login button
+       WebElement loginTab=wd.findElement(By.cssSelector("[href='/login']"));
+       loginTab.click();
+
+       //fill valid email
+       WebElement emailTextBox= wd.findElement(By.cssSelector("[placeholder='Email']"));
+       emailTextBox.click();
+       emailTextBox.clear();
+       emailTextBox.sendKeys("noa@gmail.com");
+
+      // fill valid password
+       WebElement passwordTextBox= wd.findElement(By.cssSelector("[placeholder='Password']"));
+       passwordTextBox.click();
+       passwordTextBox.clear();
+       passwordTextBox.sendKeys("Nnoa12345$");
+
+       //click login button
+       WebElement loginButton= wd.findElement(By.cssSelector("button"));
+       loginButton.click();
+
+       //Assert
 
    }
 
+
+    @Test
+    public void firstTestRegistrSuccess(){
+        wd = new ChromeDriver();
+        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
+          WebElement loginTab =wd.findElement(By.cssSelector("[href='/login']"));
+          loginTab.click();
+
+        WebElement emailTextBox= wd.findElement(By.cssSelector("[placeholder='Email']"));
+        emailTextBox.click();
+        emailTextBox.clear();
+        emailTextBox.sendKeys("Knna@gmail.com");
+
+
+        WebElement passwordTextBox= wd.findElement(By.cssSelector("[placeholder='Password']"));
+        passwordTextBox.click();
+        passwordTextBox.clear();
+        passwordTextBox.sendKeys("Aanna12345$");
+
+        WebElement registrButton= wd.findElement(By.cssSelector("div.login_login__3EHKB button:last-child"));
+        registrButton.click();
+
+
+
+
+    }
 }
