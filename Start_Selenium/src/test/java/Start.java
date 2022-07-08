@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class Start {
 
     WebDriver wd;
@@ -24,60 +26,61 @@ public class Start {
         //wd.close();
         wd.quit();
     }
- @Test
-  public void firstTestLoginSuccess(){
+
+    @Test
+    public void firstTestLoginSuccess() {
 
         wd = new ChromeDriver();
         wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
 
         //open form -> click login button
-       WebElement loginTab=wd.findElement(By.cssSelector("[href='/login']"));
-       loginTab.click();
+        WebElement loginTab = wd.findElement(By.cssSelector("[href='/login']"));
+        loginTab.click();
 
-       //fill valid email
-       WebElement emailTextBox= wd.findElement(By.cssSelector("[placeholder='Email']"));
-       emailTextBox.click();
-       emailTextBox.clear();
-       emailTextBox.sendKeys("noa@gmail.com");
+        //fill valid email
+        WebElement emailTextBox = wd.findElement(By.cssSelector("[placeholder='Email']"));
+        emailTextBox.click();
+        emailTextBox.clear();
+        emailTextBox.sendKeys("noa@gmail.com");
 
-      // fill valid password
-       WebElement passwordTextBox= wd.findElement(By.cssSelector("[placeholder='Password']"));
-       passwordTextBox.click();
-       passwordTextBox.clear();
-       passwordTextBox.sendKeys("Nnoa12345$");
+        // fill valid password
+        WebElement passwordTextBox = wd.findElement(By.cssSelector("[placeholder='Password']"));
+        passwordTextBox.click();
+        passwordTextBox.clear();
+        passwordTextBox.sendKeys("Nnoa12345$");
 
-       //click login button
-       WebElement loginButton= wd.findElement(By.cssSelector("button"));
-       loginButton.click();
+        //click login button
+        WebElement loginButton = wd.findElement(By.cssSelector("button"));
+        loginButton.click();
 
-       //Assert
+        //Assert
 
-   }
+    }
 
 
     @Test
-    public void firstTestRegistrSuccess(){
+    public void firstTestRegistrSuccess() {
         wd = new ChromeDriver();
         wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
-          WebElement loginTab =wd.findElement(By.cssSelector("[href='/login']"));
-          loginTab.click();
+        WebElement loginTab = wd.findElement(By.cssSelector("[href='/login']"));
+        loginTab.click();
 
-        WebElement emailTextBox= wd.findElement(By.cssSelector("[placeholder='Email']"));
+        WebElement emailTextBox = wd.findElement(By.cssSelector("[placeholder='Email']"));
         emailTextBox.click();
         emailTextBox.clear();
-        emailTextBox.sendKeys("Knna@gmail.com");
+        emailTextBox.sendKeys("Onna@gmail.com");
 
 
-        WebElement passwordTextBox= wd.findElement(By.cssSelector("[placeholder='Password']"));
+        WebElement passwordTextBox = wd.findElement(By.cssSelector("[placeholder='Password']"));
         passwordTextBox.click();
         passwordTextBox.clear();
         passwordTextBox.sendKeys("Aanna12345$");
 
-        WebElement registrButton= wd.findElement(By.cssSelector("div.login_login__3EHKB button:last-child"));
+        // WebElement registrButton= wd.findElement(By.cssSelector("div.login_login__3EHKB button:last-child"));
+        // WebElement registrButton= wd.findElement(By.cssSelector("button :last-child"));
+        List<WebElement> list = wd.findElements(By.cssSelector("button"));
+        WebElement registrButton = list.get(1);
         registrButton.click();
-
-
-
-
+        
     }
 }
