@@ -23,6 +23,9 @@ public class StartCss {
         wd.findElement(By.partialLinkText("LOG"));
 
         /////////////////////CSS//////////////
+     // > -one level down(CSS)              /-one level down(XPATH)
+     // SPACE -find down of the list(CSS)  //-find down of the list(XPATH)
+
 //tagName
         wd.findElement(By.cssSelector("div"));
         wd.findElement(By.xpath("//div"));
